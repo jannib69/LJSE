@@ -61,11 +61,11 @@ def get_ticker_data(symbol: str, start: str = None, end: str = None, model: str 
     # resolve start date
     if start is None:
         #raw = row["segment_listing_date"].iloc[0]
-        raw = "2018-01-01" # ***** LJSE RESTRICTIONS
+        raw = "2018-1-1" # ***** LJSE RESTRICTIONS
         try:
             start = pd.to_datetime(raw).strftime("%Y-%m-%d")
         except:
-            start = "2018-01-01"
+            start = "2018-1-1"
 
     # resolve end date
     if end is None:
