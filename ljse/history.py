@@ -4,6 +4,7 @@
 import pandas as pd
 import datetime
 
+from tqdm import tqdm
 from typing import List
 from .tickers import get_tickers
 
@@ -111,7 +112,7 @@ def get_tickers_column_data(
     frames = []
 
     # fetch each ticker DF
-    for symbol in tickers:
+    for symbol in tqdm(tickers, desc="Fetching LJSE data"):
         df = get_ticker_data(symbol, start=start, end=end, model="CT")
 
         if col not in df.columns:
